@@ -68,7 +68,7 @@ int main(int argc, char* argv[]) {
 			answer[i] = array[0];
 		}
 		else{
-	    		quickSort(array, 0, nums.size()-1);
+	    	quickSort(array, 0, nums.size()-1);
 			int pos1 = array[nums.size()-1] * array[nums.size()-2] * array[nums.size()-3];
 			int pos2 = array[0] * array[1] * array[nums.size()-1];
 			answer[i] = max(pos1,pos2);
