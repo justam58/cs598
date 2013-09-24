@@ -27,7 +27,7 @@ public:
 			int arrayPos = num / 32;
 			int n1 = positive[arrayPos];
 			int pos = num % 32;
-			long n2 = pow(2 , pos);
+			long n2 = 1 << pos;
 			positive[arrayPos] = n1 | n2;
 		}
 		else{
@@ -35,7 +35,7 @@ public:
 			int arrayPos = num / 32;
 			int n1 = negative[arrayPos];
 			int pos = num % 32;
-			long n2 = pow(2 , pos);
+			long n2 = 1 << pos;
 			negative[arrayPos] = n1 | n2;
 		}
 	}
@@ -48,7 +48,7 @@ public:
 			int arrayPos = num / 32;
 			int n1 = positive[arrayPos];
 			int pos = num % 32;
-			int n2 = pow(2 , pos);
+			int n2 = 1 << pos;
 			positive[arrayPos] = n1 - n2;
 		}
 		else{
@@ -56,7 +56,7 @@ public:
 			int arrayPos = num / 32;
 			int n1 = negative[arrayPos];
 			int pos = num % 32;
-			int n2 = pow(2 , pos);
+			int n2 = 1 << pos;
 			negative[arrayPos] = n1 - n2;
 		}
 	}
@@ -73,7 +73,7 @@ public:
 			n1 = negative[arrayPos];
 		}
 		int pos = num % 32;
-		long n2 = pow(2 , pos);
+		long n2 = 1 << pos;
 		return ((n1 & n2) == n2);
 	}
 };
