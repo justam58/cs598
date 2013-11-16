@@ -1,4 +1,5 @@
 import sys
+import math
 
 for line in sys.stdin:
     parts = line.split()
@@ -6,4 +7,6 @@ for line in sys.stdin:
     b = int(parts[1])
     if a == 0 and b == 0:
         break
-    print a**b
+    r = a/(2*math.pi)
+    h = b-(2*r)
+    print h*math.pi*r*r
