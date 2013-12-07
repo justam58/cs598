@@ -7,6 +7,7 @@ for line in sys.stdin:
     b = int(parts[1])
     if a == 0 and b == 0:
         break
-    r = a/(2*math.pi)
+    r = a/2/math.pi
     h = b-(2*r)
-    print h*math.pi*r*r
+    ans = float(h*math.pi*r*r)
+    print ("%.3f" % ans)

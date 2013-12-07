@@ -1,34 +1,26 @@
 import sys
 
-case = 1
-trys = -1
 for line in sys.stdin:
-    if trys == -1:
-        trys = int(line)
-        if trys == 0:
+    all = set()
+    num = int(line)
+
+    count = 0
+    found = False
+    while(num not in all):
+        if num == 1:
+            found = True
             break
-        continue
-    nums = line.split()
-    nnums = []
-    done = False
-    for i in range(1000+1):
-        # print nums
-        ok = True
-        for j in range(len(nums)):
-            now = j
-            next = j + 1
-            if next == len(nums):
-                next = 0
-            nnums.append(abs(int(nums[next])-int(nums[now])))
-            if nums[now] != nums[next]:
-                ok = False
-        if ok:
-            done = True
-            print "Case " + str(case) + ": " + str(i) + " iterations"
-            break
-        nums = nnums
-        nnums = []
-    if not done:
-        print "Case " + str(case) + ": not attained"
-    case = case + 1
-    trys = -1
+        all.add(num)
+        numStr = str(num)
+        num = 0
+        for ch in numStr:
+            v = int(ch)
+            num = num + v**2
+        count = count + 1
+    if found:
+        print count
+        break
+    print -1
+
+
+
