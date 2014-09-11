@@ -1,26 +1,40 @@
 import sys
 
-for line in sys.stdin:
-    all = set()
-    num = int(line)
+d = -1.0
+w = -1.0
+td = 0.0
+tw = 0.0
 
-    count = 0
-    found = False
-    while(num not in all):
-        if num == 1:
-            found = True
-            break
-        all.add(num)
-        numStr = str(num)
-        num = 0
-        for ch in numStr:
-            v = int(ch)
-            num = num + v**2
-        count = count + 1
-    if found:
-        print count
+def reset(d,w,td,tw):
+    ans = float(w/tw)
+    ans = float(ans * td)
+    print int(round(ans))
+
+for line in sys.stdin:
+    parts = line.split()
+    a = float(parts[0])
+    b = float(parts[1])
+    if a == 0 and b == 0:
+        reset(d,w,td,tw)
+        d = -1.0
+        w = -1.0
+        td = 0.0
+        tw = 0.0
+        continue
+    if a == -1 and b == -1:
         break
-    print -1
+    if d == -1 and w == -1:
+        d = a
+        w = b
+        continue
+    if b > w:
+        d = a
+        w = b
+        continue
+    td = td + a - d
+    tw = tw - b + w
+    d = a
+    w = b
 
 
 
